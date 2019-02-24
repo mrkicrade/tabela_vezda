@@ -79,7 +79,12 @@ secondRate.innerHTML = paidSecondRate + '.00 (' + sumPossibleSecondRate + '.00)'
 
 //possible third rate paid
 function sum3(paid3){
-	possibleThirdRate = (secondRatePaid.reduce(getSum));
-	console.log(possibleThirdRate);
+	for (let i = 0; i < paid2.length; i++) {
+		x = paid2[i].nextElementSibling.innerText;
+		x2 = parseInt(x);
+		possibleThirdRate.push(x2);
+	}
+	sumPossibleThirdRate = (possibleThirdRate.reduce(getSum));
+	// console.log(possibleThirdRate);
 }
-thirdRate.innerHTML = '0.00 (' + possibleThirdRate + '.00)';
+thirdRate.innerHTML = '0.00 (' + sumPossibleThirdRate + '.00)';
